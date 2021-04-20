@@ -37,7 +37,7 @@ class App extends Component {
       case 'game':
         return (<Game playerOption={this.state.playerOption} endGameCallback={this.endGame}/>);
       case 'winner':
-        return (<Winner/>);
+        return (<Winner winner={this.state.winner} endGameCallback={this.endGame}/>);
     }
   }
 
@@ -52,16 +52,19 @@ class App extends Component {
   }
 
   endGame(winner) {
-    console.log('Esta sendo chamada')
+    console.log('Esta sendo chamada');
+    console.log(`Esse é o ganhador: ${winner}`)
     if(winner === undefined) {
       this.setState(state => ({
         currentScreen: 'initial'
       }));
     } else {
       this.setState(state => ({
+        winner,
         currentScreen: 'winner'
       }));
     }
+
   }
 
   render() {

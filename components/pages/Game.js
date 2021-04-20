@@ -30,6 +30,7 @@ class Game extends Component{
         this.setState(state => ({
             board: currentBoard,
         }));
+        this.checkWinner();
         this.switchPlayer();
     }
 
@@ -39,6 +40,65 @@ class Game extends Component{
             currentPlayer: otherPlayer
         }))
     }
+
+    getWinner() {
+        let winner = undefined,
+            board = this.state.board;
+
+        // check rows
+        for(let row = 0; row < 3; row++) {
+            if(board[row][0] === board[row][1] && 
+                board[row][1] === board[row][2] &&
+                board[row][0] !== '') {
+                    winner = board[row][0];         
+            }
+        }
+        // check columns
+        for(let col = 0; col < 3; col++) {
+            if(board[0][col] === board[1][col] &&
+                board[1][col] === board[2][col] &&
+                board[0][col] !== '') {
+                    winner = board[0][col];
+                }
+        }
+
+        // check all diagonals
+        if(board[0][0] !== '' && board[0][0] === board[1][1] && 
+            board[1][1] === board[2][2]) {
+                winner = board[0][0];
+        } else if(board[0][2] !== '' && board[0][2] === board[1][1] && 
+            board[1][1] === board[2][0]) {
+                winner = board[0][2];
+        }
+        console.log(`ganhador do momento: ${winner}`);
+        return winner;
+    }
+
+    isComplete() {
+        const board = this.state.board;
+
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 3; j++){
+                if(board[i][j] === ''){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    checkWinner() {
+        console.log('Entrou na checkWinner');
+        switch(this.getWinner()){
+            case 'X':
+                return this.endGameCallback('X');
+            case 'O':
+                return this.endGameCallback('O');
+            default:
+                if(this.isComplete()) return this.endGameCallback('velha');
+        }
+    }
+
     
 
     render(){
@@ -104,6 +164,7 @@ class Game extends Component{
         )
     }
 }
+
 
 class Cell extends Component{
     constructor(props){
