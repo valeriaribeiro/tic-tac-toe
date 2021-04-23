@@ -15,6 +15,7 @@ class Game extends Component{
         this.props = props;
         this.playerOption = props.playerOption;
         this.endGameCallback = props.endGameCallback;
+        this.withBot = props.withBot;
         this.state = {
             board,
             currentPlayer: this.playerOption,

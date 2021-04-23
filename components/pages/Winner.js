@@ -23,13 +23,20 @@ class Winner extends Component {
     renderWinnwer() {
         if(this.winner === 'velha'){
             return(
-                <Text style={styles.titleInitial}>O jogo deu velha</Text>
+                <Text style={styles.title}>O jogo deu velha</Text>
             )
         }
         return(
-            <Text style={styles.titleInitial}>O ganhador é o jogador 
-                <Text style={{color: this.getColor(this.winner)}}> {this.winner}</Text> 
-            </Text>
+            <>
+                <Text style={styles.title}>Vencedor</Text>
+                <Text style={styles.caption}>Jogador: </Text>
+                <View style={styles.boxPlayerInitial} >
+                    <Text style={{color: this.getColor(this.winner), fontSize: 40}}>
+                        {this.winner}
+                    </Text>
+                </View>
+                
+            </>
         )
     }
 

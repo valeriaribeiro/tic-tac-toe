@@ -23,6 +23,7 @@ class App extends Component {
     super(props);
     this.state = {
       playerOption: 'X',
+      withBot: true,
       winner: undefined,
       currentScreen: 'initial',
     }
@@ -35,15 +36,20 @@ class App extends Component {
       case 'initial':
         return (<Initial optionCallback = {this.updatePlayerOption}/>);
       case 'game':
-        return (<Game playerOption={this.state.playerOption} endGameCallback={this.endGame}/>);
+        return (
+          <Game playerOption={this.state.playerOption} 
+          withBot={this.state.withBot} 
+          endGameCallback={this.endGame}/>
+        );
       case 'winner':
         return (<Winner winner={this.state.winner} endGameCallback={this.endGame}/>);
     }
   }
 
-  updatePlayerOption(option) {
+  updatePlayerOption(option, withBot) {
     this.setState(state => ({
-      playerOption: option
+      playerOption: option,
+      withBot: withBot,
     }));
     console.log(`Está tudo funcionando: ${option}`)
     this.setState(state => ({

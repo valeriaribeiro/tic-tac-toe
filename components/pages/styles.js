@@ -32,6 +32,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 5,
     },
+    checkBox: {
+        alignContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        margin: 20,
+    },
+    checkBoxText:{
+        fontSize: 17,
+        color: '#555',
+        marginLeft: 5,
+    },
 
     Items: {
         flexDirection: 'row',
