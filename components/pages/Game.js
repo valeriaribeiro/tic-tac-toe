@@ -3,7 +3,9 @@ import {Text, TouchableOpacity, View} from 'react-native';
 
 import styles from './styles';
 
-class Game extends Component{
+import Bot from './Bot';
+
+class Game extends Component {
     constructor(props){
         super();
         console.log(`Estamos aqui: ${props}`)
@@ -25,21 +27,34 @@ class Game extends Component{
         this.switchPlayer = this.switchPlayer.bind(this);
     }
     
-    fillPosition(row, col) {
+    async fillPosition(row, col) {
         let currentBoard = this.state.board;
         currentBoard[row][col] = this.state.currentPlayer;
-        this.setState(state => ({
-            board: currentBoard,
-        }));
+        await new Promise(resolve => {
+            this.setState(state => ({
+                board: currentBoard,
+            }), resolve);
+        }) 
+        console.log(`checando o ganhador ${JSON.stringify(currentBoard)}`)
         this.checkWinner();
-        this.switchPlayer();
+        console.log('trocando de jogador')
+        await this.switchPlayer();
+        console.log('vai jogar alguém')
+        console.log(`jogador - ${(this.state.currentPlayer === this.playerOption)}`)
+        if(this.state.currentPlayer !== this.playerOption && this.withBot){
+            console.log('O bot está jogando')
+            this.playBot(this.state.currentPlayer);
+        }
     }
 
-    switchPlayer() {
+    async switchPlayer() {
         let otherPlayer = this.state.currentPlayer === 'X' ? 'O' : 'X';
-        this.setState(state => ({
-            currentPlayer: otherPlayer
-        }))
+        await new Promise(resolve => {
+            this.setState(state => ({
+                currentPlayer: otherPlayer
+            }), resolve)
+        })
+            
     }
 
     getWinner() {
@@ -100,6 +115,12 @@ class Game extends Component{
         }
     }
 
+    playBot(currentPlayer) {
+        const bot = new Bot(currentPlayer);
+        const [i, j] = bot.selectPosition(this.state.board);
+        this.fillPosition(i, j);
+        console.log('O bot está cagando todo o jogo')
+    }
     
 
     render(){
