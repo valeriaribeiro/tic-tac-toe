@@ -94,6 +94,12 @@ const styles = StyleSheet.create({
         color: '#da3f3f',
     },
 
+    animationWinner: {
+        width: 400,
+        height: 400,
+        
+    },
+
 });
 
 

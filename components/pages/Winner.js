@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import Lottie from 'lottie-react-native';
 
 import styles from './styles';
+import trophy from '../../assets/animations/winner.json';
 
 class Winner extends Component {
     constructor(props){
@@ -22,19 +24,23 @@ class Winner extends Component {
 
     renderWinnwer() {
         if(this.winner === 'velha'){
-            return(
-                <Text style={styles.title}>O jogo deu velha</Text>
+            return (
+                <>
+                    <Text style={styles.title}>Fim de partida</Text>
+                    <Text style={styles.caption}>O jogo deu velha</Text>
+                </>
             )
         }
         return(
             <>
-                <Text style={styles.title}>Vencedor</Text>
-                <Text style={styles.caption}>Jogador: </Text>
+                <Text style={styles.title}>Fim de partida</Text>
+                <Text style={styles.caption}> O jogador: </Text>
                 <View style={styles.boxPlayerInitial} >
                     <Text style={{color: this.getColor(this.winner), fontSize: 40}}>
                         {this.winner}
                     </Text>
                 </View>
+                <Text style={styles.caption}>Venceu o jogo</Text>
                 
             </>
         )

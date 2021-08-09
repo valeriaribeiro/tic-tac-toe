@@ -49,12 +49,11 @@ class Game extends Component {
 
     async switchPlayer() {
         let otherPlayer = this.state.currentPlayer === 'X' ? 'O' : 'X';
-        await new Promise(resolve => {
+        return new Promise(resolve => {
             this.setState(state => ({
                 currentPlayer: otherPlayer
             }), resolve)
         })
-            
     }
 
     getWinner() {

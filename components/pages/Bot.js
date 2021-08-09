@@ -4,14 +4,16 @@ class Bot {
     }
 
     selectPosition(board) {
-        while(true) {
-            const i = Math.floor(Math.random() * 3);
-            const j = Math.floor(Math.random() * 3);
-            if(board[i][j] === ''){
-                console.log(`A casa escolhida é ${i}, ${j}`)
-                return [i, j];
+        newBoard = []
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 3; j++){
+                if(board[i][j] === ''){
+                    newBoard.push([i,j])
+                }
             }
         }
+        const botPlay = Math.floor(Math.random() * newBoard.length);
+        return newBoard[botPlay];
     }
 }
 
