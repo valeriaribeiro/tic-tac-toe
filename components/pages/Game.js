@@ -8,7 +8,6 @@ import Bot from './Bot';
 class Game extends Component {
     constructor(props){
         super();
-        console.log(`Estamos aqui: ${props}`)
         const board = [['','',''],
                 ['','',''],
                 ['','',''],
@@ -35,14 +34,9 @@ class Game extends Component {
                 board: currentBoard,
             }), resolve);
         }) 
-        console.log(`checando o ganhador ${JSON.stringify(currentBoard)}`)
         this.checkWinner();
-        console.log('trocando de jogador')
         await this.switchPlayer();
-        console.log('vai jogar alguém')
-        console.log(`jogador - ${(this.state.currentPlayer === this.playerOption)}`)
         if(this.state.currentPlayer !== this.playerOption && this.withBot){
-            console.log('O bot está jogando')
             this.playBot(this.state.currentPlayer);
         }
     }
@@ -85,7 +79,6 @@ class Game extends Component {
             board[1][1] === board[2][0]) {
                 winner = board[0][2];
         }
-        console.log(`ganhador do momento: ${winner}`);
         return winner;
     }
 
@@ -103,7 +96,6 @@ class Game extends Component {
     }
 
     checkWinner() {
-        console.log('Entrou na checkWinner');
         switch(this.getWinner()){
             case 'X':
                 return this.endGameCallback('X');
@@ -118,7 +110,6 @@ class Game extends Component {
         const bot = new Bot(currentPlayer);
         const [i, j] = bot.selectPosition(this.state.board);
         this.fillPosition(i, j);
-        console.log('O bot está cagando todo o jogo')
     }
     
 

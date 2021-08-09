@@ -51,15 +51,12 @@ class App extends Component {
       playerOption: option,
       withBot: withBot,
     }));
-    console.log(`Está tudo funcionando: ${option}`)
     this.setState(state => ({
       currentScreen: 'game'
     }));
   }
 
   endGame(winner) {
-    console.log('Esta sendo chamada');
-    console.log(`Esse é o ganhador: ${winner}`)
     if(winner === undefined) {
       this.setState(state => ({
         currentScreen: 'initial'
