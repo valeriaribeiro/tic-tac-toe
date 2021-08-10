@@ -1,106 +1,104 @@
-import {StyleSheet} from 'react-native';
-
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f0f7f9',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#f0f7f9",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    titleInitial: {
-        fontSize: 35,
-        fontWeight: 'bold',
-        color: '#333',
-    },
+  titleInitial: {
+    fontSize: 35,
+    fontWeight: "bold",
+    color: "#333",
+  },
 
-    caption: {
-        fontSize: 20,
-        color: '#555',
-        marginTop: 20,
-    },
+  subtitle: {
+    fontSize: 20,
+    color: "#555",
+    marginTop: 20,
+  },
 
-    boxPlayerInitial: {
-        width: 80,
-        height: 80,
-        borderWidth: 1,
-        borderRadius: 8,
-        borderColor: '#ddd',
-        backgroundColor: '#F0F8FF',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 5,
-    },
-    checkBox: {
-        alignContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        margin: 20,
-    },
-    checkBoxText:{
-        fontSize: 17,
-        color: '#555',
-        marginLeft: 5,
-    },
+  subtitleWinner: {
+    fontSize: 20,
+    color: "#555",
+      marginTop: 20,
+    fontWeight: "bold",
+  },
 
-    Items: {
-        flexDirection: 'row',
-    },
+  boxPlayerInitial: {
+    width: 80,
+    height: 80,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
+    backgroundColor: "#F0F8FF",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 5,
+  },
+  checkBox: {
+    alignContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    margin: 20,
+  },
+  checkBoxText: {
+    fontSize: 17,
+    color: "#555",
+    marginLeft: 5,
+  },
 
-    title: {
-        fontSize: 35,
-        fontWeight: 'bold',
-        color: '#333',
-        margin: 15,
-    },
+  items: {
+    flexDirection: "row",
+  },
 
-    boxPlayer: {
-        width: 80,
-        height: 80,
-        borderWidth: 1,
-        borderRadius: 8,
-        borderColor: '#ddd',
-        backgroundColor: '#e9e9e9',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 5,
-    },
+  title: {
+    fontSize: 35,
+    fontWeight: "bold",
+    color: "#333",
+    margin: 15,
+  },
 
-    restartButton: {
-        width: 260,
-        height: 50,
-        borderWidth: 1,
-        borderRadius: 8,
-        borderColor: '#ddd',
-        backgroundColor: '#e7eaeb',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 25,
-    },
+  boxPlayer: {
+    width: 80,
+    height: 80,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
+    backgroundColor: "#e9e9e9",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 5,
+  },
 
-    restart: {
-        fontSize: 17,
-        fontWeight: 'bold',
-    },
+  restartButton: {
+    width: 260,
+    height: 50,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
+    backgroundColor: "#e7eaeb",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 25,
+  },
 
-    playerX: {
-        fontSize: 40,
-        color: '#553fda',
-    },
-    
-    playerO: {
-        fontSize: 40,
-        color: '#da3f3f',
-    },
+  restart: {
+    fontSize: 17,
+    fontWeight: "bold",
+  },
 
-    animationWinner: {
-        width: 400,
-        height: 400,
-        
-    },
+  playerX: {
+    fontSize: 40,
+    color: "#553fda",
+  },
 
+  playerO: {
+    fontSize: 40,
+    color: "#da3f3f",
+  },
 });
-
 
 export default styles;

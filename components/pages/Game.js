@@ -4,6 +4,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 
 import Bot from './Bot';
+import Board from './Board';
 
 class Game extends Component {
     constructor(props){
@@ -36,7 +37,10 @@ class Game extends Component {
         }) 
         this.checkWinner();
         await this.switchPlayer();
-        if(this.state.currentPlayer !== this.playerOption && this.withBot){
+        if (this.state.currentPlayer !== this.playerOption && this.withBot) {
+            await new Promise( resolve => {
+                setTimeout(resolve, 500);
+            })
             this.playBot(this.state.currentPlayer);
         }
     }
@@ -98,11 +102,11 @@ class Game extends Component {
     checkWinner() {
         switch(this.getWinner()){
             case 'X':
-                return this.endGameCallback('X');
+                return this.endGameCallback('X', this.state.board);
             case 'O':
-                return this.endGameCallback('O');
+                return this.endGameCallback("O", this.state.board);
             default:
-                if(this.isComplete()) return this.endGameCallback('velha');
+                if(this.isComplete()) return this.endGameCallback("velha", this.state.board);
         }
     }
 
@@ -118,56 +122,7 @@ class Game extends Component {
             <View style={styles.container}>
                 <Text style={styles.title}>Jogo da velha</Text>
 
-                <View style={styles.Items}>
-                    <Cell 
-                        value={this.state.board[0][0]} 
-                        fillPositionCallback={() => this.fillPosition(0, 0)}
-                    />
-
-                    <Cell 
-                        value={this.state.board[0][1]} 
-                        fillPositionCallback={() => this.fillPosition(0, 1)}
-                    />
-
-                    <Cell 
-                        value={this.state.board[0][2]} 
-                        fillPositionCallback={() => this.fillPosition(0, 2)}
-                    />
-                </View>
-
-                <View style={styles.Items}>
-                    <Cell 
-                        value={this.state.board[1][0]}
-                        fillPositionCallback={() => this.fillPosition(1, 0)}
-                    />
-
-                    <Cell 
-                        value={this.state.board[1][1]}
-                        fillPositionCallback={() => this.fillPosition(1, 1)}
-                    />
-
-                    <Cell 
-                        value={this.state.board[1][2]}
-                        fillPositionCallback={() => this.fillPosition(1, 2)}
-                    />
-                </View>
-
-                <View style={styles.Items}>
-                    <Cell 
-                        value={this.state.board[2][0]} 
-                        fillPositionCallback={() => this.fillPosition(2, 0)}
-                    />
-
-                    <Cell 
-                        value={this.state.board[2][1]} 
-                        fillPositionCallback={() => this.fillPosition(2, 1)}
-                    />
-
-                    <Cell 
-                        value={this.state.board[2][2]} 
-                        fillPositionCallback={() => this.fillPosition(2, 2)}
-                    />                    
-                </View>
+                <Board fillPosition={this.fillPosition} board={this.state.board}/>
 
                 <TouchableOpacity style={styles.restartButton} onPress={() => this.endGameCallback()}>
                     <Text style={styles.restart}>Reiniciar</Text>
@@ -177,35 +132,5 @@ class Game extends Component {
     }
 }
 
-
-class Cell extends Component{
-    constructor(props){
-        super(props);
-        this.props = props;
-    }
-
-    getColor(currentPlayer){
-        switch(currentPlayer){
-            case 'X':
-                return '#553fda';
-            case 'O':
-                 return '#da3f3f';
-        }
-    }
-
-    render(){
-        return(
-            <TouchableOpacity 
-                style={styles.boxPlayer} 
-                onPress={() => this.props.fillPositionCallback()}
-                disabled={this.props.value !== ''}
-            >
-                <Text style={{color: this.getColor(this.props.value), fontSize: 40}}>
-                    {this.props.value}
-                </Text>
-            </TouchableOpacity>
-        )
-    }
-}
 
 export default Game;

@@ -42,7 +42,7 @@ class App extends Component {
           endGameCallback={this.endGame}/>
         );
       case 'winner':
-        return (<Winner winner={this.state.winner} endGameCallback={this.endGame}/>);
+        return (<Winner winner={this.state.winner} endGameCallback={this.endGame} board={this.board}/>);
     }
   }
 
@@ -56,12 +56,13 @@ class App extends Component {
     }));
   }
 
-  endGame(winner) {
+  endGame(winner, board) {
     if(winner === undefined) {
       this.setState(state => ({
         currentScreen: 'initial'
       }));
     } else {
+      this.board = board;
       this.setState(state => ({
         winner,
         currentScreen: 'winner'

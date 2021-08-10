@@ -15,35 +15,41 @@ class Initial extends Component{
 
 
     render() {
-        return(
-            <View style={styles.container}>
-                <Text style={styles.titleInitial}>Jogo da velha</Text>
-                <Text style={styles.caption}>Selecione o primeiro jogador</Text>
-    
-                <View style={styles.Items}>
-                    <TouchableOpacity 
-                        style={styles.boxPlayerInitial}
-                        onPress={() => this.props.optionCallback('X', this.state.withBot)}
-                    >
-                        <Text style={styles.playerX}>X</Text>
-                    </TouchableOpacity>
-    
-                    <TouchableOpacity 
-                        style={styles.boxPlayerInitial}
-                        onPress={() => this.props.optionCallback('O', this.state.withBot)}
-                    >
-                        <Text style={styles.playerO}>O</Text>
-                    </TouchableOpacity>
-                </View>
+        return (
+          <View style={styles.container}>
+            <Text style={styles.titleInitial}>Jogo da velha</Text>
+            <Text style={styles.subtitle}>Selecione o primeiro jogador</Text>
 
-                <View style={styles.checkBox}>
-                    <CheckBox
-                        value={this.state.withBot}
-                        onValueChange={() => this.setState({withBot: !this.state.withBot})}
-                    />
-                    <Text style={styles.checkBoxText}>Jogar contra máquina</Text>
-                </View>
+            <View style={styles.items}>
+              <TouchableOpacity
+                style={styles.boxPlayerInitial}
+                onPress={() =>
+                  this.props.optionCallback("X", this.state.withBot)
+                }
+              >
+                <Text style={styles.playerX}>X</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.boxPlayerInitial}
+                onPress={() =>
+                  this.props.optionCallback("O", this.state.withBot)
+                }
+              >
+                <Text style={styles.playerO}>O</Text>
+              </TouchableOpacity>
             </View>
+
+            <View style={styles.checkBox}>
+              <CheckBox
+                value={this.state.withBot}
+                onValueChange={() =>
+                  this.setState({ withBot: !this.state.withBot })
+                }
+              />
+              <Text style={styles.checkBoxText}>Jogar contra máquina</Text>
+            </View>
+          </View>
         );
     }
 }
