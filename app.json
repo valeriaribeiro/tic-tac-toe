@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "jogo-da-velha",
-    "slug": "jogo-da-velha",
+    "name": "Tic-tac-toe",
+    "slug": "Tic-tac-toe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F0F8FF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -20,13 +20,8 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.avaplicativos.tictactoe",
+      "versionCode": 1
     }
   }
 }
