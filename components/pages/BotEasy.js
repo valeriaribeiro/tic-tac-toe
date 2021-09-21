@@ -1,4 +1,4 @@
-class Bot {
+class BotEasy {
     constructor(botOption) {
         this.botOption = botOption;
     }
@@ -17,4 +17,4 @@ class Bot {
     }
 }
 
-export default Bot;
+export default BotEasy;

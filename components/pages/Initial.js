@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import {CheckBox, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 
 import styles from './styles';
 
@@ -39,15 +39,6 @@ class Initial extends Component{
               </TouchableOpacity>
             </View>
 
-            <View style={styles.checkBox}>
-              <CheckBox
-                value={this.state.withBot}
-                onValueChange={() =>
-                  this.setState({ withBot: !this.state.withBot })
-                }
-              />
-              <Text style={styles.checkBoxText}>Jogar contra máquina</Text>
-            </View>
           </View>
         );
     }

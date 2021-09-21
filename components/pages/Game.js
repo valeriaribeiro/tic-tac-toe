@@ -3,7 +3,8 @@ import {Text, TouchableOpacity, View} from 'react-native';
 
 import styles from './styles';
 
-import Bot from './Bot';
+import BotEasy from './BotEasy';
+import BotMedium from './BotMedium';
 import Board from './Board';
 
 class Game extends Component {
@@ -17,11 +18,20 @@ class Game extends Component {
         this.props = props;
         this.playerOption = props.playerOption;
         this.endGameCallback = props.endGameCallback;
-        this.withBot = props.withBot;
+        this.gameMode = props.gameMode;
+        this.withBot = this.gameMode === 'friend' ? false : true;
         this.state = {
             board,
             currentPlayer: this.playerOption,
         }
+
+        const botOption = this.state.currentPlayer === 'X' ? 'O' : 'X';
+        if (this.gameMode === 'facil') {   
+            this.bot = new BotEasy(botOption);
+        } else if (this.gameMode === 'medio') {
+            this.bot = new BotMedium(botOption)
+        }
+
 
         this.fillPosition = this.fillPosition.bind(this);
         this.switchPlayer = this.switchPlayer.bind(this);
@@ -111,8 +121,7 @@ class Game extends Component {
     }
 
     playBot(currentPlayer) {
-        const bot = new Bot(currentPlayer);
-        const [i, j] = bot.selectPosition(this.state.board);
+        const [i, j] = this.bot.selectPosition(this.state.board);
         this.fillPosition(i, j);
     }
     

@@ -14,16 +14,32 @@ const styles = StyleSheet.create({
     color: "#333",
   },
 
+  title: {
+    fontSize: 35,
+    fontWeight: "bold",
+    color: "#333",
+    margin: 15,
+  },
+
+  titleMode: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#555",
+    marginTop: 20,
+    margin: 10,
+  },
+
   subtitle: {
     fontSize: 20,
     color: "#555",
     marginTop: 20,
+    margin: 15,
   },
 
   subtitleWinner: {
     fontSize: 20,
     color: "#555",
-      marginTop: 20,
+    marginTop: 20,
     fontWeight: "bold",
   },
 
@@ -38,28 +54,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 5,
   },
-  checkBox: {
-    alignContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    margin: 20,
-  },
-  checkBoxText: {
-    fontSize: 17,
-    color: "#555",
-    marginLeft: 5,
-  },
-
-  items: {
-    flexDirection: "row",
-  },
-
-  title: {
-    fontSize: 35,
-    fontWeight: "bold",
-    color: "#333",
-    margin: 15,
-  },
 
   boxPlayer: {
     width: 80,
@@ -71,6 +65,47 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 5,
+  },
+
+  boxPlayerModeGame: {
+    width: 100,
+    height: 50,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
+    backgroundColor: "#F0F8FF",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 5,
+  },
+
+  boxPlayerModeGameAlone: {
+    width: 250,
+    height: 50,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
+    backgroundColor: "#F0F8FF",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 5,
+  },
+
+  checkBox: {
+    alignContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    margin: 20,
+  },
+
+  checkBoxText: {
+    fontSize: 17,
+    color: "#555",
+    marginLeft: 5,
+  },
+
+  items: {
+    flexDirection: "row",
   },
 
   restartButton: {
@@ -98,6 +133,34 @@ const styles = StyleSheet.create({
   playerO: {
     fontSize: 40,
     color: "#da3f3f",
+  },
+
+  modeGameEasy: {
+    fontSize: 20,
+    fontWeight: "bold",
+    justifyContent: "space-between",
+    color: "#4169E1",
+  },
+
+  modeGameMedium: {
+    fontSize: 20,
+    fontWeight: "bold",
+    justifyContent: "space-between",
+    color: "#DAA520",
+  },
+
+  modeGameHard: {
+    fontSize: 20,
+    fontWeight: "bold",
+    justifyContent: "space-between",
+    color: "#B22222",
+  },
+
+  modeGameAlone: {
+    fontSize: 20,
+    fontWeight: "bold",
+    justifyContent: "space-between",
+    color: "#4169E1",
   },
 });
 

@@ -6,50 +6,71 @@ import styles from './components/pages/styles';
 import Initial from './components/pages/Initial';
 import Game from './components/pages/Game';
 import Winner from './components/pages/Winner';
+import GameMode from './components/pages/GameMode';
 
 
-function switchScreen(){
-  switch(screen){
-    case 'initial':
-      return Initial();
-    case 'game':
-      return Game();
-    case 'winner':
-      return Winner();
-  }
-}
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
       playerOption: 'X',
-      withBot: true,
+      gameMode: undefined,
       winner: undefined,
       currentScreen: 'initial',
+      toRemember: undefined,
     }
     this.updatePlayerOption = this.updatePlayerOption.bind(this);
     this.endGame = this.endGame.bind(this);
+    this.setGameMode = this.setGameMode.bind(this);
   }
 
   renderCurrentScreen() {
-    switch(this.state.currentScreen){
-      case 'initial':
-        return (<Initial optionCallback = {this.updatePlayerOption}/>);
-      case 'game':
+    switch (this.state.currentScreen) {
+      case "initial":
+        return <Initial optionCallback={this.updatePlayerOption} />;
+      case "gamemode":
+        return (<GameMode optionCallback={this.setGameMode} />);
+      case "game":
         return (
-          <Game playerOption={this.state.playerOption} 
-          withBot={this.state.withBot} 
-          endGameCallback={this.endGame}/>
+          <Game
+            playerOption={this.state.playerOption}
+            gameMode={this.state.gameMode}
+            endGameCallback={this.endGame}
+          />
         );
-      case 'winner':
-        return (<Winner winner={this.state.winner} endGameCallback={this.endGame} board={this.board}/>);
+      case "winner":
+        return (
+          <Winner
+            winner={this.state.winner}
+            endGameCallback={this.endGame}
+            board={this.board}
+          />
+        );
     }
   }
 
-  updatePlayerOption(option, withBot) {
-    this.setState(state => ({
+  updatePlayerOption(option) {
+    this.setState((state) => ({
       playerOption: option,
-      withBot: withBot,
+    }));
+    
+    if (this.state.toRemember === true) {
+      this.setState((state) => ({
+        currentScreen: "game",
+      }));
+    } else {
+      this.setState(state => ({
+        currentScreen: 'gamemode'
+      }));
+    }
+  }
+
+  setGameMode(gameMode, toRemember) {
+    this.setState(state => ({
+      gameMode: gameMode,
+    }));
+    this.setState(state => ({
+      toRemember: toRemember
     }));
     this.setState(state => ({
       currentScreen: 'game'
