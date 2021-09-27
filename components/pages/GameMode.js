@@ -21,14 +21,14 @@ class GameMode extends Component {
         <View style={styles.items}>
           <TouchableOpacity
             style={styles.boxPlayerModeGame}
-            onPress={() => this.props.optionCallback("facil", this.state.toRemember)}
+            onPress={() => this.props.optionCallback("easy", this.state.toRemember)}
           >
             <Text style={styles.modeGameEasy}>Fácil</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.boxPlayerModeGame}
-            onPress={() => this.props.optionCallback("medio", this.state.toRemember)}
+            onPress={() => this.props.optionCallback("medium", this.state.toRemember)}
           >
             <Text style={styles.modeGameMedium}>Médio</Text>
           </TouchableOpacity>

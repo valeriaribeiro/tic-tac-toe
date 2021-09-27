@@ -108,6 +108,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
+  buttonConfig: {
+    width: 30,
+    height: 30,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
+    backgroundColor: "#e7eaeb",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginLeft: 25,
+  },
+
   restartButton: {
     width: 260,
     height: 50,

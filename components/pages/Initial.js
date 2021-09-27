@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 import styles from './styles';
 
@@ -7,6 +7,7 @@ class Initial extends Component{
     constructor(props){
         super(props);
         this.props = props;
+        this.configCallback = props.configCallback;
         this.state = {
             withBot: true,
         }
@@ -16,6 +17,13 @@ class Initial extends Component{
     render() {
         return (
           <View style={styles.container}>
+            <TouchableOpacity
+              style={styles.buttonConfig}
+              onPress={() => this.configCallback()}
+            >
+              <Text style={styles.restart}>Nível</Text>
+            </TouchableOpacity>
+
             <Text style={styles.titleInitial}>Jogo da velha</Text>
             <Text style={styles.subtitle}>Selecione o primeiro jogador</Text>
 
@@ -38,7 +46,6 @@ class Initial extends Component{
                 <Text style={styles.playerO}>O</Text>
               </TouchableOpacity>
             </View>
-
           </View>
         );
     }

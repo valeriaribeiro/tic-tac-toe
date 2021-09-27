@@ -26,12 +26,11 @@ class Game extends Component {
         }
 
         const botOption = this.state.currentPlayer === 'X' ? 'O' : 'X';
-        if (this.gameMode === 'facil') {   
+        if (this.gameMode === 'easy') {   
             this.bot = new BotEasy(botOption);
-        } else if (this.gameMode === 'medio') {
+        } else if (this.gameMode === 'medium') {
             this.bot = new BotMedium(botOption)
         }
-
 
         this.fillPosition = this.fillPosition.bind(this);
         this.switchPlayer = this.switchPlayer.bind(this);

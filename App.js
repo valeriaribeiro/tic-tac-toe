@@ -22,14 +22,20 @@ class App extends Component {
     this.updatePlayerOption = this.updatePlayerOption.bind(this);
     this.endGame = this.endGame.bind(this);
     this.setGameMode = this.setGameMode.bind(this);
+    this.chooseLevel = this.chooseLevel.bind(this);
   }
 
   renderCurrentScreen() {
     switch (this.state.currentScreen) {
       case "initial":
-        return <Initial optionCallback={this.updatePlayerOption} />;
+        return (
+          <Initial
+            optionCallback={this.updatePlayerOption}
+            configCallback={this.chooseLevel}
+          />
+        );
       case "gamemode":
-        return (<GameMode optionCallback={this.setGameMode} />);
+        return <GameMode optionCallback={this.setGameMode} />;
       case "game":
         return (
           <Game
@@ -56,7 +62,7 @@ class App extends Component {
     
     if (this.state.toRemember === true) {
       this.setState((state) => ({
-        currentScreen: "game",
+        currentScreen: 'game',
       }));
     } else {
       this.setState(state => ({
@@ -74,6 +80,15 @@ class App extends Component {
     }));
     this.setState(state => ({
       currentScreen: 'game'
+    }));
+  }
+
+  chooseLevel(gameMode) {
+    this.setState(state => ({
+      gameMode: gameMode,
+    }));
+    this.setState(state => ({
+      currentScreen: 'gamemode'
     }));
   }
 
