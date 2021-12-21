@@ -1,7 +1,5 @@
 import React, {Component, useState} from 'react';
-import {View} from 'react-native';
-
-import styles from './components/pages/styles';
+import {StyleSheet, View} from 'react-native';
 
 import Initial from './components/pages/Initial';
 import Game from './components/pages/Game';
@@ -118,3 +116,12 @@ class App extends Component {
 
 
 export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f0f7f9",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

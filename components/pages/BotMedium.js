@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 class BotMedium {
   constructor(botOption) {
     this.botOption = botOption;

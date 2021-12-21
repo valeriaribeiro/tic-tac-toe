@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import {CheckBox, Text, TouchableOpacity, View } from 'react-native';
 
-import styles from './styles';
+import styles from '../styles/gameModeStyles';
 
 class GameMode extends Component {
   constructor(props) {
@@ -15,19 +15,19 @@ class GameMode extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.titleMode}>Jogar Contra o Bot</Text>
+        <Text style={styles.title}>Jogar Contra o Bot</Text>
         <Text style={styles.subtitle}>Nível de dificuldade:</Text>
 
         <View style={styles.items}>
           <TouchableOpacity
-            style={styles.boxPlayerModeGame}
+            style={styles.boxPlayer}
             onPress={() => this.props.optionCallback("easy", this.state.toRemember)}
           >
             <Text style={styles.modeGameEasy}>Fácil</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.boxPlayerModeGame}
+            style={styles.boxPlayer}
             onPress={() => this.props.optionCallback("medium", this.state.toRemember)}
           >
             <Text style={styles.modeGameMedium}>Médio</Text>
@@ -35,11 +35,11 @@ class GameMode extends Component {
 
         </View>
 
-        <Text style={styles.titleMode}> Ou Jogar </Text>
+        <Text style={styles.title}> Ou Jogar </Text>
 
         <View style={styles.items}>
           <TouchableOpacity
-            style={styles.boxPlayerModeGameAlone}
+            style={styles.boxPlayerAlone}
             onPress={() => this.props.optionCallback("friend", this.state.toRemember)}
           >
             <Text style={styles.modeGameAlone}>Contra um amigo</Text>

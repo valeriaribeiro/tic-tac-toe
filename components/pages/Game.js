@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import styles from './styles';
+import styles from '../styles/gameStyles';
 
 import BotEasy from './BotEasy';
 import BotMedium from './BotMedium';

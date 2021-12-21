@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import Board from "./Board";
+import React, { Component } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import Board from './Board';
 
-import styles from "./styles";
+import styles from '../styles/winnerStyles';
 
 class Winner extends Component {
   constructor(props) {
@@ -15,9 +15,9 @@ class Winner extends Component {
 
   getColor(winner) {
     switch (winner) {
-      case "X":
+      case 'X':
         return "#553fda";
-      case "O":
+      case 'O':
         return "#da3f3f";
     }
   }
@@ -28,7 +28,7 @@ class Winner extends Component {
         <>
           <Text style={styles.title}>Fim de partida</Text>
           <Board board={this.board} />
-          <Text style={styles.subtitleWinner}>O jogo deu velha</Text>
+          <Text style={styles.subtitle}>O jogo deu velha</Text>
         </>
       );
     }
@@ -37,7 +37,7 @@ class Winner extends Component {
         <Text style={styles.title}>Fim de partida</Text>
             <Board board={this.board} disabled={true}/>
         <View style={styles.items}>
-          <Text style={styles.subtitleWinner}> O jogador </Text>
+          <Text style={styles.subtitle}> O jogador </Text>
           <Text
             style={{
               color: this.getColor(this.winner),
@@ -48,7 +48,7 @@ class Winner extends Component {
           >
             {this.winner}
           </Text>
-          <Text style={styles.subtitleWinner}> venceu o jogo</Text>
+          <Text style={styles.subtitle}> venceu o jogo</Text>
         </View>
       </>
     );

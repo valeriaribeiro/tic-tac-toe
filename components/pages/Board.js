@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import React, { Component } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 
-import styles from "./styles";
+import styles from '../styles/boardStyles';
 
 class Board extends Component {
   constructor(props) {
